@@ -1,7 +1,7 @@
 import React from "react";
 import {Row, Col, Button} from "reactstrap";
 
-const ContactInfoRow = ({contact, handleEditClick}) => {
+const ContactInfoRow = ({contact, handleEditClick, handleDeleteClick}) => {
 	return (
 		<tr key={contact.id}>
 			<td>{contact.firstName}</td>
@@ -14,9 +14,15 @@ const ContactInfoRow = ({contact, handleEditClick}) => {
 					title="Edit Contact"
 					onClick={e => handleEditClick(contact.id)}
 				>
-					<i class="fas fa-pencil-alt"></i>
+					<i className="fas fa-pencil-alt"></i>
 				</Button>
-				<Button color="danger" title="Delete Contact"><i class="far fa-trash-alt"></i></Button>
+				<Button
+					color="danger"
+					title="Delete Contact"
+					onClick={e => handleDeleteClick(contact.id)}
+				>
+					<i className="far fa-trash-alt"></i>
+				</Button>
 			</td>
 		</tr>
 	)

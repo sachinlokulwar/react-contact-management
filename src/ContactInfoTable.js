@@ -2,7 +2,7 @@ import React from "react";
 import {Table} from "reactstrap";
 import ContactInfoRow from "./ContactInfoRow";
 
-const ContactInfoTable = ({contactInfo, handleEditClick}) => {
+const ContactInfoTable = ({contactInfo, handleEditClick, handleDeleteClick}) => {
 	return (
 		<div className="contact-info-table-container">
 			<Table className="contact-info-table table-bordered">
@@ -21,6 +21,8 @@ const ContactInfoTable = ({contactInfo, handleEditClick}) => {
 							<ContactInfoRow
 								contact={contact}
 								handleEditClick={handleEditClick}
+								handleDeleteClick={handleDeleteClick}
+								key={contact.id}
 							/>
 						)
 					})

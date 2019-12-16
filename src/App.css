@@ -36,6 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.mandate:after {
+    content:"*";
+    font-weight:bold;
+    color: red;
+}
+.error-msg{
+  color: red;
+}
 .page-header{
   margin: 10px 0 20px 0;
 }
