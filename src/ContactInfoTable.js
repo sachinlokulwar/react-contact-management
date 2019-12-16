@@ -2,7 +2,7 @@ import React from "react";
 import {Table} from "reactstrap";
 import ContactInfoRow from "./ContactInfoRow";
 
-const ContactInfoTable = ({contactInfo}) => {
+const ContactInfoTable = ({contactInfo, handleEditClick}) => {
 	return (
 		<div className="contact-info-table-container">
 			<Table className="contact-info-table table-bordered">
@@ -18,7 +18,10 @@ const ContactInfoTable = ({contactInfo}) => {
 	      <tbody>
 					{contactInfo && contactInfo.map(contact => {
 						return (
-							<ContactInfoRow contact={contact} />
+							<ContactInfoRow
+								contact={contact}
+								handleEditClick={handleEditClick}
+							/>
 						)
 					})
 					}

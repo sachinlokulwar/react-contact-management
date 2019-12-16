@@ -12,17 +12,27 @@ class ContactDetails extends Component {
 			contactInfo            : ContactUtil.contactList,
 			showCreateContactModal : false,
 			editMode               : false,
+			contactData            : {},
 		}
 		this.toggleCreateContactModal = this.toggleCreateContactModal.bind(this);
-		this.createContact            = this.createContact.bind(this)
+		this.createContact            = this.createContact.bind(this);
+		this.handleEditClick          = this.handleEditClick.bind(this);
 	}
 
 	toggleCreateContactModal() {
 		this.setState({showCreateContactModal: !this.state.showCreateContactModal})
 	}
 
-	createContact() {
+	createContact(firstName, lastName, email, phone) {
 
+	}
+
+	handleEditClick(id) {
+		this.setState({
+			showCreateContactModal : true,
+			editMode               : true,
+			contactData            : this.state.contactInfo.find((contact) => contact.id === id)
+		})
 	}
 
 	render() {
@@ -49,12 +59,13 @@ class ContactDetails extends Component {
 				<div className="page-body">
 					<ContactInfoTable
 						contactInfo={this.state.contactInfo}
+						handleEditClick={this.handleEditClick}
 					/>
 				</div>
 				{this.state.showCreateContactModal &&
 					<CreateEditContactModal
 						editMode={this.state.editMode}
-						contactData={this.state.contactData}
+						contactData={this.state.editMode ? this.state.contactData : ContactUtil.emptyContactObject}
 						isOpen={this.state.showCreateContactModal}
 						toggle={this.toggleCreateContactModal}
 					/>
