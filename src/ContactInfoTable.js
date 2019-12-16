@@ -12,6 +12,7 @@ const ContactInfoTable = ({contactInfo, handleEditClick, handleDeleteClick}) => 
 	          <th>Last Name</th>
 	          <th>Email</th>
 	          <th>Phone No</th>
+	          <th>Status</th>
 	          <th>Action</th>
 	        </tr>
 	      </thead>

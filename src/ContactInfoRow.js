@@ -10,6 +10,13 @@ const ContactInfoRow = ({contact, handleEditClick, handleDeleteClick}) => {
 			<td>{ContactUtil.getEmail(contact)}</td>
 			<td>{ContactUtil.getPhoneNo(contact)}</td>
 			<td>
+				{ContactUtil.getStatus(contact) ?
+					<span style={{color: "green"}}><i className="fas fa-check"></i> Active</span>
+				:
+					<span style={{color: "red"}}><i className="fas fa-times"></i> In Active</span>
+				}
+			</td>
+			<td>
 				<Button
 					color="link"
 					title="Edit Contact"

@@ -5,21 +5,24 @@ export default {
 			firstName: "firstName",
 			lastName: "lastName",
 			email: "test@gmail.com",
-			phoneNo: "9988776655" 
+			phoneNo: "9988776655",
+			status: 1 //Active
 		},
 		{
 			id: 2,
 			firstName: "firstN",
 			lastName: "lastN",
 			email: "test1@gmail.com",
-			phoneNo: "9988776655" 
+			phoneNo: "9988776655",
+			status: 0 //In Active
 		},
 	],
 	emptyContactObject: {
 		firstName: "",
 		lastName: "",
 		email: "",
-		phoneNo: ""
+		phoneNo: "",
+		status: 1,
 	},
 
 	showCreateBtn: function(firstName, lastName, email, phone) {
@@ -78,5 +81,11 @@ export default {
 			return ""
 		}
 		return data.id || "";
+	},
+	getStatus: function(data) {
+		if(!data) {
+			return ""
+		}
+		return data.status || "";
 	},
 }

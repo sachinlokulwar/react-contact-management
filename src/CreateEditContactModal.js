@@ -11,6 +11,7 @@ const CreateEditContactModal = ({toggle, isOpen, contactData, saveContact, editM
 	const [lastName, changeLastName]   = useState(ContactUtil.getLastName(contactData));
 	const [email, changeEmail]         = useState(ContactUtil.getEmail(contactData));
 	const [phone, changePhone]         = useState(ContactUtil.getPhoneNo(contactData));
+	const [status, changeStatus]       = useState(ContactUtil.getStatus(contactData));
 
 	const showCreateBtn = ContactUtil.showCreateBtn(firstName, lastName, email, phone);
 	const errors        = ContactUtil.validateData(firstName, lastName, email, phone);
@@ -92,13 +93,27 @@ const CreateEditContactModal = ({toggle, isOpen, contactData, saveContact, editM
 					      </FormGroup>
 					    </Col>
 					  </Row>
+					  <Row form>
+					  	<Col md="12">
+					  		<FormGroup check>
+				          <Label>
+					          <Input
+					          	type="checkbox"
+					          	defaultChecked={status}
+					          	onClick={e => changeStatus(e.target.checked)}
+					          />{' '}
+					          Active
+					        </Label>
+				        </FormGroup>
+					  	</Col>
+					  </Row>
 			    </Form>
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>Cancel</Button>{' '}
           <Button
           	color="primary"
-          	onClick={e => saveContact(firstName, lastName, email, phone)}
+          	onClick={e => saveContact(firstName, lastName, email, phone, status)}
           	disabled={!(showCreateBtn && isValid)}
           >
           	{editMode ? "Update" : "Create" }

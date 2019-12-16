@@ -25,10 +25,16 @@ class ContactDetails extends Component {
 	}
 
 	toggleCreateContactModal() {
+		if(!this.state.showCreateContactModal) {
+			this.setState({
+				editMode: false,
+				contactData: {}
+			})
+		}
 		this.setState({showCreateContactModal: !this.state.showCreateContactModal})
 	}
 
-	createContact(firstName, lastName, email, phone) {
+	createContact(firstName, lastName, email, phone, status) {
 		if(this.state.editMode) {
 			const list = this.state.contactInfo;
 			for(let i=0;i<list.length;i++) {
@@ -37,6 +43,7 @@ class ContactDetails extends Component {
 					list[i].lastName  = lastName
 					list[i].email     = email
 					list[i].phoneNo   = phone
+					list[i].status    = status
 				}
 			}
 			this.setState({
@@ -51,7 +58,8 @@ class ContactDetails extends Component {
 				firstName : firstName,
 				lastName  : lastName,
 				email     : email,
-				phoneNo   : phone
+				phoneNo   : phone,
+				status    : status
 			}
 			this.setState({
 				contactInfo            : [...this.state.contactInfo, createObj],
