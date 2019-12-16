@@ -7,10 +7,10 @@ import './App.css'
 
 
 const CreateEditContactModal = ({toggle, isOpen, contactData, saveContact, editMode}) => {
-	const [firstName, changeFirstName] = useState((contactData && contactData.firstName) || '');
-	const [lastName, changeLastName]   = useState((contactData && contactData.lastName) || '');
-	const [email, changeEmail]         = useState((contactData && contactData.email) || '');
-	const [phone, changePhone]         = useState((contactData && contactData.phoneNo) || '');
+	const [firstName, changeFirstName] = useState(ContactUtil.getFirstName(contactData));
+	const [lastName, changeLastName]   = useState(ContactUtil.getLastName(contactData));
+	const [email, changeEmail]         = useState(ContactUtil.getEmail(contactData));
+	const [phone, changePhone]         = useState(ContactUtil.getPhoneNo(contactData));
 
 	const showCreateBtn = ContactUtil.showCreateBtn(firstName, lastName, email, phone);
 	const errors        = ContactUtil.validateData(firstName, lastName, email, phone);

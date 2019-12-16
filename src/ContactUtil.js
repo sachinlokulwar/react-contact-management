@@ -9,8 +9,8 @@ export default {
 		},
 		{
 			id: 2,
-			firstName: "firstName1",
-			lastName: "lastName1",
+			firstName: "firstN",
+			lastName: "lastN",
 			email: "test1@gmail.com",
 			phoneNo: "9988776655" 
 		},
@@ -44,6 +44,39 @@ export default {
 			errors.phoneNo = !(/^\+?[0-9. ()-]{10,25}$/).test(phone);
 		}
 		return errors;
-	}
+	},
 
+	getFirstName: function(data) {
+		if(!data) {
+			return ""
+		}
+		return data.firstName || "";
+	},
+
+	getLastName: function(data) {
+		if(!data) {
+			return ""
+		}
+		return data.lastName || "";
+	},
+
+	getEmail: function(data) {
+		if(!data) {
+			return ""
+		}
+		return data.email || "";
+	},
+
+	getPhoneNo: function(data) {
+		if(!data) {
+			return ""
+		}
+		return data.phoneNo || "";
+	},
+	getId: function(data) {
+		if(!data) {
+			return ""
+		}
+		return data.id || "";
+	},
 }
