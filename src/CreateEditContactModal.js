@@ -38,7 +38,7 @@ const CreateEditContactModal = ({toggle, isOpen, contactData, saveContact, editM
 					         	onChange={e => changeFirstName(e.target.value)}
 					        />
 					        {errors.firstName &&
-					        	<p className="error-msg">Please Enter valid First Name</p>
+					        	<p className="error-msg">Please Enter valid First Name(only alphabets and atlease 2 charectors)</p>
 					      	}
 					      </FormGroup>
 					    </Col>
@@ -54,7 +54,7 @@ const CreateEditContactModal = ({toggle, isOpen, contactData, saveContact, editM
 					         	onChange={e => changeLastName(e.target.value)}
 					        />
 					        {errors.lastName &&
-					        	<p className="error-msg">Please Enter valid Last Name</p>
+					        	<p className="error-msg">Please Enter valid Last Name(only alphabets and atlease 2 charectors)</p>
 					      	}
 					      </FormGroup>
 					    </Col>
@@ -88,7 +88,7 @@ const CreateEditContactModal = ({toggle, isOpen, contactData, saveContact, editM
 					         	onChange={e => changePhone(e.target.value)}
 					        />
 					        {errors.phoneNo &&
-					        	<p className="error-msg">Please Enter valid Phone Number</p>
+					        	<p className="error-msg">Please Enter valid Phone Number(only numbers)</p>
 					      	}
 					      </FormGroup>
 					    </Col>
