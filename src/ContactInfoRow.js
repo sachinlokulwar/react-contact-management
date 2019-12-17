@@ -1,5 +1,5 @@
 import React from "react";
-import {Row, Col, Button} from "reactstrap";
+import {Button} from "reactstrap";
 import ContactUtil from "./ContactUtil";
 
 const ContactInfoRow = ({contact, handleEditClick, handleDeleteClick}) => {
